@@ -174,7 +174,7 @@ If you use InlineDoubt and find it helpful, consider:
 
 <div align="center">
 
-Made with ☕ and frustration at long AI answers.
+Built it , because scrolling back to re-read is the worst.
 
 **[Add to Chrome — Free](https://chrome.google.com/webstore)**
 
