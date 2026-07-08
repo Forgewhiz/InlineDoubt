@@ -32,26 +32,25 @@ using chrome.storage.local and chrome.storage.sync.
 This data NEVER leaves your device to any server 
 we operate. This data is NOT shared with anyone.
 
-## Session Cookies
+## How InlineDoubt Connects to AI Platforms
 
-InlineDoubt reads your existing session cookie 
-from Claude.ai only to make API calls to Claude 
-on your behalf — exactly as if you typed the 
-question yourself in the chat.
+InlineDoubt uses fetch() calls made directly from 
+within the AI platform's own page (content script).
 
-The cookie value is:
-- Never stored by the extension
-- Never logged anywhere
-- Never transmitted to any third party server
-- Only used locally within the background service 
-  worker to authenticate the request to Claude.ai
-  which the user is already logged into
+For Claude.ai and Perplexity — the browser 
+automatically attaches your existing session to 
+these requests, exactly as it would for any normal 
+action you take on those pages. InlineDoubt does 
+not read, store, or access your session cookies 
+directly — the browser handles this automatically.
+
+For ChatGPT, Gemini, DeepSeek, Grok and Meta AI — 
+InlineDoubt uses a free API key provided by the user.
 
 ## API Keys
 
-For platforms other than Claude.ai and Perplexity, 
-InlineDoubt optionally uses a free API key provided 
-by the user.
+For platforms that require an API key, InlineDoubt 
+uses a free key provided by the user.
 
 This API key is:
 - Stored locally in your browser using 
@@ -65,8 +64,7 @@ This API key is:
 
 | Permission | Why it is needed |
 |---|---|
-| storage | To save your doubts and optional API key locally in your browser |
-| cookies | To read your existing Claude.ai session cookie to answer questions on your behalf — never stored or shared |
+| storage | To save your doubts and optional API key locally in your browser only |
 
 ## Data Sharing
 
@@ -85,6 +83,10 @@ This is subject to their own privacy policies:
 - Claude.ai: https://www.anthropic.com/privacy
 - Google Gemini: https://policies.google.com/privacy
 - OpenAI ChatGPT: https://openai.com/privacy
+- Perplexity: https://www.perplexity.ai/privacy
+- DeepSeek: https://www.deepseek.com/privacy
+- Grok: https://x.ai/privacy
+- Meta AI: https://www.meta.ai/privacy
 
 ## Children's Privacy
 
@@ -97,6 +99,7 @@ If we update this policy we will update the
 "Last updated" date at the top of this page.
 
 ## Contact
+
 For any questions about this privacy policy, 
 open an issue at:
 https://github.com/Forgewhiz/InlineDoubt/issues
